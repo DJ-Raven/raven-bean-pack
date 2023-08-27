@@ -48,44 +48,29 @@ public class Test extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         glassIcon1.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
-            "/glassicon/card.svg", 5.0f, 0, 5,
+            "/glassicon/icon/card.svg", 5.0f, 0, 5,
             new java.util.HashMap<Integer, String>(){
                 {
                     put(0,"@background");
-                    put(1,"@foreground");
-                    put(2,"@foreground");
+                    put(1,"#6691a1");
+                    put(2,"#6691a1");
                 }
             },
             new raven.glassmorphism.GlassIconConfig.GlassShape(
-                java.awt.Color.decode("#993872"),
+                java.awt.Color.decode("#db214f"),
                 new java.awt.geom.RoundRectangle2D.Double(2.0, 2.0, 10.0, 10.0, 5.0, 5.0),
                 45.0f)
         ));
 
         glassIcon2.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
-            "/glassicon/doc.svg", 5.0f, 1, 5,
+            "/glassicon/icon/doc.svg", 5.0f, 1, 5,
             new java.util.HashMap<Integer, String>(){
                 {
-                    put(0,"@foreground");
+                    put(0,"#6691a1");
                     put(1,"@background");
-                    put(2,"@foreground");
-                    put(3,"@foreground");
-                    put(4,"@foreground");
-                }
-            },
-            new raven.glassmorphism.GlassIconConfig.GlassShape(
-                java.awt.Color.decode("#788507"),
-                new java.awt.geom.RoundRectangle2D.Double(2.0, 2.0, 10.0, 10.0, 5.0, 5.0),
-                45.0f)
-        ));
-
-        glassIcon3.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
-            "/glassicon/currency.svg", 5.0f, 0, 5,
-            new java.util.HashMap<Integer, String>(){
-                {
-                    put(0,"@background");
-                    put(1,"@foreground");
-                    put(2,"@foreground");
+                    put(2,"#6691a1");
+                    put(3,"#6691a1");
+                    put(4,"#6691a1");
                 }
             },
             new raven.glassmorphism.GlassIconConfig.GlassShape(
@@ -94,21 +79,36 @@ public class Test extends javax.swing.JFrame {
                 45.0f)
         ));
 
-        glassIcon4.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
-            "/glassicon/dollar.svg", 5.0f, 0, 5,
+        glassIcon3.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
+            "/glassicon/icon/currency.svg", 5.0f, 0, 5,
             new java.util.HashMap<Integer, String>(){
                 {
                     put(0,"@background");
-                    put(1,"@foreground");
-                    put(2,"@foreground");
-                    put(3,"@foreground");
-                    put(4,"@foreground");
+                    put(1,"#6691a1");
+                    put(2,"#6691a1");
                 }
             },
             new raven.glassmorphism.GlassIconConfig.GlassShape(
-                java.awt.Color.decode("#e7e510"),
-                new java.awt.geom.RoundRectangle2D.Double(7.0, 7.0, 10.0, 10.0, 10.0, 10.0),
-                133.0f)
+                java.awt.Color.decode("#9db035"),
+                new java.awt.geom.RoundRectangle2D.Double(2.0, 2.0, 10.0, 10.0, 5.0, 5.0),
+                45.0f)
+        ));
+
+        glassIcon4.setGlassIconConfig(new raven.glassmorphism.GlassIconConfig(
+            "/glassicon/icon/dollar.svg", 5.0f, 0, 5,
+            new java.util.HashMap<Integer, String>(){
+                {
+                    put(0,"@background");
+                    put(1,"#6691a1");
+                    put(2,"#6691a1");
+                    put(3,"#6691a1");
+                    put(4,"#6691a1");
+                }
+            },
+            new raven.glassmorphism.GlassIconConfig.GlassShape(
+                java.awt.Color.decode("#2ca6f3"),
+                new java.awt.geom.RoundRectangle2D.Double(6.0, 7.0, 10.0, 10.0, 10.0, 10.0),
+                45.0f)
         ));
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -120,24 +120,24 @@ public class Test extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setForeground(new java.awt.Color(88, 139, 190));
         jLabel1.setIcon(glassIcon1);
 
-        jLabel2.setForeground(new java.awt.Color(88, 139, 190));
         jLabel2.setIcon(glassIcon2);
 
-        jLabel3.setForeground(new java.awt.Color(88, 139, 190));
         jLabel3.setIcon(glassIcon3);
 
-        jLabel4.setForeground(new java.awt.Color(88, 139, 190));
         jLabel4.setIcon(glassIcon4);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(683, Short.MAX_VALUE)
+                .addComponent(jButton2)
+                .addContainerGap())
             .addGroup(layout.createSequentialGroup()
-                .addGap(198, 198, 198)
+                .addGap(121, 121, 121)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
@@ -145,22 +145,18 @@ public class Test extends javax.swing.JFrame {
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
-                .addContainerGap(131, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton2)
-                .addContainerGap())
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(112, 112, 112)
+                .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3)
                     .addComponent(jLabel4))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 176, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 165, Short.MAX_VALUE)
                 .addComponent(jButton2)
                 .addContainerGap())
         );
@@ -187,37 +183,12 @@ public class Test extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Test.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
 
-        /* Create and display the form */
         FlatLaf.registerCustomDefaultsSource("glassicon");
         FlatIntelliJLaf.setup();
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new Test().setVisible(true);
             }
