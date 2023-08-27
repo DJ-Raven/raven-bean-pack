@@ -11,7 +11,6 @@ import java.awt.Component;
 import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
-import java.awt.geom.RoundRectangle2D;
 import java.beans.PropertyEditor;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
@@ -90,9 +89,6 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
         add(new JScrollPane(table), "height 100:100");
         add(new JLabel("Shape"));
         add(panelShapeEditor, "cell 1 5");
-        setValue(new GlassIconConfig("/test/icon2.svg", 5, 0, 5,
-                null,
-                new GlassIconConfig.GlassShape(new Color(28, 153, 84), new RoundRectangle2D.Double(2, 2, 10, 10, 3, 3), 45)));
     }
 
     private JTable createTable() {
@@ -250,8 +246,12 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
 
     @Override
     public void setValue(Object value) {
+        if (value == null) {
+            glassIconConfig = new GlassIconConfig();
+        } else {
+            glassIconConfig = glassIconUtil.cloneGlassIconConfig((GlassIconConfig) value);
+        }
         onInit = true;
-        glassIconConfig = glassIconUtil.cloneGlassIconConfig((GlassIconConfig) value);
         glassIcon = new GlassIcon(glassIconConfig);
         labelIcon.setIcon(glassIcon);
         loadPackage();
@@ -265,18 +265,20 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
     }
 
     private void selectedIcon(String iconName) {
-        if (iconName.contains("/")) {
-            if (iconName.startsWith("/")) {
-                iconName = iconName.substring(1, iconName.length());
-            }
-            int index = iconName.lastIndexOf("/");
-            String packageName = iconName.substring(0, index).replace("/", ".");
-            String name = iconName.substring(index + 1, iconName.length());
-            comboPackage.setSelectedItem(packageName);
-            for (int i = 0; i < comboFile.getItemCount(); i++) {
-                if (comboFile.getItemAt(i).toString().equals(name)) {
-                    comboFile.setSelectedIndex(i);
-                    return;
+        if (iconName != null) {
+            if (iconName.contains("/")) {
+                if (iconName.startsWith("/")) {
+                    iconName = iconName.substring(1, iconName.length());
+                }
+                int index = iconName.lastIndexOf("/");
+                String packageName = iconName.substring(0, index).replace("/", ".");
+                String name = iconName.substring(index + 1, iconName.length());
+                comboPackage.setSelectedItem(packageName);
+                for (int i = 0; i < comboFile.getItemCount(); i++) {
+                    if (comboFile.getItemAt(i).toString().equals(name)) {
+                        comboFile.setSelectedIndex(i);
+                        return;
+                    }
                 }
             }
         }
@@ -330,7 +332,11 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
 
     @Override
     public Object getValue() {
-        return new GlassIconConfig(glassIconConfig.getName(), glassIconConfig.getScale(), glassIconConfig.getGlassIndex(), glassIconConfig.getBlur(), glassIconConfig.getColorMap(), glassIconConfig.getGlassShape());
+        if (glassIconConfig == null) {
+            return null;
+        } else {
+            return new GlassIconConfig(glassIconConfig.getName(), glassIconConfig.getScale(), glassIconConfig.getGlassIndex(), glassIconConfig.getBlur(), glassIconConfig.getColorMap(), glassIconConfig.getGlassShape());
+        }
     }
 
     @Override
