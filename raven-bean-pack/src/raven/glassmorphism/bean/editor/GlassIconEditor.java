@@ -99,6 +99,7 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
             }
         };
         JTable tbl = new JTable(tableModel);
+        tbl.getTableHeader().setReorderingAllowed(false);
         tbl.getColumnModel().getColumn(0).setPreferredWidth(100);
         tbl.getColumnModel().getColumn(1).setMinWidth(100);
         tbl.getColumnModel().getColumn(1).setCellRenderer(new ColorCellRender());
