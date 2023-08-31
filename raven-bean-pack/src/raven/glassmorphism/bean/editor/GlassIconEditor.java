@@ -14,7 +14,7 @@ import java.awt.event.ActionEvent;
 import java.beans.PropertyEditor;
 import java.io.UnsupportedEncodingException;
 import java.net.URI;
-import java.net.URISyntaxException;
+import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -221,16 +221,15 @@ public class GlassIconEditor extends JPanel implements PropertyEditor {
     private void loadElements() {
         tableModel.setRowCount(0);
         if (glassIconConfig.getName() != null) {
-            try {
-                SVGDiagram diagram = loadSvg(getClass().getResource(glassIconConfig.getName()).toURI());
+            URL url = getClass().getResource(glassIconConfig.getName());
+            if (url != null) {
+                SVGDiagram diagram = loadSvg(svgUniverse.loadSVG(url));
                 List<SVGElement> list = diagram.getRoot().getChildren(null);
                 int index = 0;
                 for (SVGElement e : list) {
                     String color = getStyle(e, "fill");
                     tableModel.addRow(new Elements(e.getTagName(), color, getColorMap(index++, color)).toTableRow());
                 }
-            } catch (URISyntaxException e) {
-                System.err.println(e);
             }
         }
     }
