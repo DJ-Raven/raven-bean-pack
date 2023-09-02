@@ -57,6 +57,7 @@ public class MigPanelEditor extends JPanel implements PropertyEditor {
             }
         };
         tableComponents = new JTable(tableModel);
+        tableComponents.getTableHeader().setReorderingAllowed(false);
         tableComponents.getColumnModel().getColumn(0).setPreferredWidth(50);
         tableComponents.getColumnModel().getColumn(0).setMaxWidth(50);
 

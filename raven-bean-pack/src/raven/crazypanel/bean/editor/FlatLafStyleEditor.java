@@ -77,7 +77,12 @@ public class FlatLafStyleEditor extends JPanel implements PropertyEditor {
     }
 
     private String editing(String value) {
-        DefaultTableModel model = new DefaultTableModel(new Object[]{"No", "Style"}, 0);
+        DefaultTableModel model = new DefaultTableModel(new Object[]{"No", "Style"}, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return column == 1;
+            }
+        };
         JTable table = new JTable(model);
         table.getColumnModel().getColumn(0).setPreferredWidth(50);
         table.getColumnModel().getColumn(0).setMaxWidth(50);
