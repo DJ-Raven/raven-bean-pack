@@ -7,6 +7,7 @@ import com.formdev.flatlaf.themes.FlatMacDarkLaf;
 import com.formdev.flatlaf.themes.FlatMacLightLaf;
 import java.awt.EventQueue;
 import java.awt.Font;
+import javax.swing.JProgressBar;
 import javax.swing.UIManager;
 
 /**
@@ -20,6 +21,7 @@ public class Test extends javax.swing.JFrame {
      */
     public Test() {
         initComponents();
+        new JProgressBar().setIndeterminate(true);
     }
 
     /**
